@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 告訴 spring-webmvc，要掃描 ex.tw.codedata 套件下，是否有被相關標註（Annotation）設定為元件的類別 -->
+	<context:component-scan base-package="proj" />
+
+	<!-- <mvc:annotation-driven /> 則是告訴 spring-webmvc，有關於接受、處理請求的元件，也會使用標註來設定相關訊息。 -->
+	<mvc:annotation-driven />
+	
+	
+	<mvc:resources mapping="/res/**" location="/res/" />
+
+	<!-- 設定 InternalResourceViewResolver 的話，你只要傳回 "hello" 字串，InternalResourceViewResolver 
+		會自動根據 prefix 與 suffix 設定，得知目前實際上要以 "/hello.jsp" 來進行畫面回應，將來若想要改為其他回應技術，就只需要修改 
+		XML 檔案。 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/" p:suffix=".jsp" />
+
+
+
+
+<!-- 	<bean id="mydataSource" -->
+<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!-- 		<property name="url" -->
+<!-- 			value="jdbc:mysql://localhost:3306/ShopSite" /> -->
+<!-- 		<property name="username" value="root" /> -->
+<!-- 		<property name="password" value="123456" /> -->
+<!-- 	</bean> -->
+
+	
+	<!-- 在這邊，透過 LocalSessionFactoryBean 的 setDataSource 注入 DataSource 實例，packageToScan 
+		設定了自動掃描實體（Entity）物件的套件來源，這樣就會自動尋找設定了 @Entity 的類別取得 ORM 資訊。 -->
+<!-- 	<bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
+<!-- 		<property name="dataSource" ref="mydataSource" /> -->
+<!-- 		<property name="packagesToScan" value="tw.com.shop.domain" /> -->
+<!-- 		<property name="hibernateProperties"> -->
+<!-- 			<props> -->
+<!-- 				<prop key="hibernate.hbm2ddl.auto">create</prop> -->
+<!-- 				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop> -->
+<!-- 				<prop key="show_sql">true</prop> -->
+<!-- 				<prop key="format_sql">true</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+
+</beans>
