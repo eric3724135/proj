@@ -21,32 +21,35 @@
 </head>
 
 <body>
-			<form:form modelAttribute="login" action="/proj/login" method="post" class="form-signin">
-				<h2 class="form-signin-heading">Please sign in</h2>
-<!-- 				<label>Email address</label> -->
-				<form:input id="inputEmail" path="email" class="form-control" placeholder="Email address" />
-<!-- 				<label>Password</label> -->
-				<form:input path="password" class="form-control" placeholder="Password" />
-				<br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-			</form:form>
+	<form:form  commandName="login" action="/proj/login" method="post" class="form-signin">
+		<h2 class="form-signin-heading">Please sign in</h2>
 
+		<!-- 				<label>Email address</label> -->
+		<form:input id="inputEmail" path="email" class="form-control" placeholder="Email address" />
+		<form:errors path="email" cssStyle="color: red; font-weight: bold;" />
 
-<%-- 	<form class="form-signin" action="/proj/login" method="post"> --%>
-<!-- 		<h2 class="form-signin-heading">Please sign in</h2> -->
-<!-- 		<label for="inputEmail" class="sr-only">Email address</label> -->
-<!-- 		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required -->
-<!-- 			autofocus> -->
-<!-- 		<label for="inputPassword" class="sr-only">Password</label> -->
-<!-- 		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
-<!-- 		<div class="checkbox"> -->
-<!-- 			<label> -->
-<!-- 				<input type="checkbox" value="remember-me"> -->
-<!-- 				Remember me -->
-<!-- 			</label> -->
-<!-- 		</div> -->
-<!-- 		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
-<%-- 	</form> --%>
+		<!-- 				<label>Password</label> -->
+		<form:input path="password" class="form-control" placeholder="Password" />
+		<form:errors path="password" cssStyle="color: red; font-weight: bold;" />
+		<br>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	</form:form>
+
+	<%-- 	<form class="form-signin" action="/proj/login" method="post"> --%>
+	<!-- 		<h2 class="form-signin-heading">Please sign in</h2> -->
+	<!-- 		<label for="inputEmail" class="sr-only">Email address</label> -->
+	<!-- 		<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required -->
+	<!-- 			autofocus> -->
+	<!-- 		<label for="inputPassword" class="sr-only">Password</label> -->
+	<!-- 		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
+	<!-- 		<div class="checkbox"> -->
+	<!-- 			<label> -->
+	<!-- 				<input type="checkbox" value="remember-me"> -->
+	<!-- 				Remember me -->
+	<!-- 			</label> -->
+	<!-- 		</div> -->
+	<!-- 		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+	<%-- 	</form> --%>
 
 	<!-- /container -->
 

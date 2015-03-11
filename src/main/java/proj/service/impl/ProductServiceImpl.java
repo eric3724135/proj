@@ -3,17 +3,21 @@ package proj.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import proj.controller.IndexConntroller;
 import proj.domain.Product;
 import proj.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
+	private static final Logger logger = Logger.getLogger(ProductServiceImpl.class);
+	
 	@Override
 	public List<Product> getProducts() {
-		System.out.println("getProducts");
+		logger.debug("getProducts");
 		List<Product> result = new ArrayList<Product>();
 		result.add(new Product(
 				"1",
